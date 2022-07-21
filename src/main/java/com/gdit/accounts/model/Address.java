@@ -1,6 +1,7 @@
 package com.gdit.accounts.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.UUID;
 
 @Entity
@@ -10,9 +11,17 @@ public class Address {
     @Column(name = "id", nullable = false)
     private UUID id;
 
+    @NotNull
+    @Version
+    private Integer version;
+
     @Lob
     @Column(name = "street", nullable = false)
     private String street;
+
+    public Integer getVersion() {
+        return version;
+    }
 
     public UUID getId() {
         return id;

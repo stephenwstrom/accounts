@@ -1,6 +1,7 @@
 package com.gdit.accounts.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.UUID;
@@ -34,6 +35,14 @@ public class Person {
         this.id = id;
     }
 
+    @NotNull
+    @Version
+    private Integer version;
+
+    public Integer getVersion() {
+        return version;
+    }
+
     public String getGivenName() {
         return givenName;
     }
@@ -57,5 +66,7 @@ public class Person {
     public void setAddresses(Set<Address> addresses) {
         this.addresses = addresses;
     }
+
+
 
 }
