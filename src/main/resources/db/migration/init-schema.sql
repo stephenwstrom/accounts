@@ -2,15 +2,15 @@ CREATE TABLE address
 (
     id      UUID    NOT NULL,
     version INTEGER NOT NULL,
-    street  TEXT    NOT NULL,
+    street  VARCHAR    NOT NULL,
     CONSTRAINT pk_address PRIMARY KEY (id)
 );
 
 CREATE TABLE person
 (
     id         UUID    NOT NULL,
-    given_name TEXT    NOT NULL,
-    sur_name   TEXT    NOT NULL,
+    given_name VARCHAR    NOT NULL,
+    sur_name   VARCHAR    NOT NULL,
     version    INTEGER NOT NULL,
     CONSTRAINT pk_person PRIMARY KEY (id)
 );

@@ -15,7 +15,6 @@ public class Address {
     @Version
     private Integer version;
 
-    @Lob
     @Column(name = "street", nullable = false)
     private String street;
 

@@ -1,7 +1,12 @@
 package com.gdit.accounts.model;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.UUID;
@@ -11,13 +16,11 @@ import java.util.UUID;
 public class Person {
     @Id
     @Column(name = "id", nullable = false)
-    private UUID id;
+    private UUID id = UUID.randomUUID();
 
-    @Lob
     @Column(name = "given_name", nullable = false)
     private String givenName;
 
-    @Lob
     @Column(name = "sur_name", nullable = false)
     private String surName;
 
