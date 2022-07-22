@@ -9,7 +9,7 @@ import java.util.UUID;
 public class Address {
     @Id
     @Column(name = "id", nullable = false)
-    private UUID id;
+    private UUID id = UUID.randomUUID();
 
     @NotNull
     @Version
