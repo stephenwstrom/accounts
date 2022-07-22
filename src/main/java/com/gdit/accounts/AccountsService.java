@@ -8,17 +8,16 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
-@Path("/person")
-public class PersonResource {
+@Path("/accounts")
+public class AccountsService {
 
     @Inject
     EntityManager em;
 
     @GET
+    @Path("/person")
     @Produces(MediaType.APPLICATION_JSON)
     public List<Person> get() {
 
