@@ -59,16 +59,15 @@ If you want to learn more about building native executables, please consult http
   JPA
 - RESTEasy Classic ([guide](https://quarkus.io/guides/resteasy)): REST endpoint framework implementing JAX-RS and more
 
-## Provided Code
+## Running the example
 
-### Hibernate ORM
+Create a local postgres database using docker:
 
-Create your first JPA entity
+```shell script
+docker run --name some-postgres -e POSTGRES_DB=accounts -e POSTGRES_PASSWORD=mysecretpassword  -p 5432:5432 -d postgres
+```
 
-[Related guide section...](https://quarkus.io/guides/hibernate-orm)
+This will work with the current settings in application.properties when you start up the app as shown above.
 
-### RESTEasy JAX-RS
-
-Easily start your RESTful Web Services
-
-[Related guide section...](https://quarkus.io/guides/getting-started#the-jax-rs-resources)
+You can then access the GET to retrieve all the persons in the database through
+http://localhost:8080/accounts/person
