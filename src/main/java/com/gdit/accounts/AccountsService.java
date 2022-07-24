@@ -36,6 +36,7 @@ public class AccountsService {
         var query = em.createQuery("select p from Person p where p.id = ?1");
         query.setParameter(1, id);
         Person result = (Person) query.getSingleResult();
+        result.getAddresses().size();
 
         return result;
     }
@@ -43,8 +44,9 @@ public class AccountsService {
     @PUT
     @Path("/person")
     @Consumes(MediaType.APPLICATION_JSON)
-    public void put(Person p) {
+    public UUID put(Person p) {
         em.persist(p);
+        return p.getId();
      }
 
     @POST

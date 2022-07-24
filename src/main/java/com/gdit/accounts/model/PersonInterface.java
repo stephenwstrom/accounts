@@ -28,10 +28,10 @@ public interface PersonInterface {
 
     void setAddresses(Set<Address> addresses);
 
-    default int age(){
+    default Period age(){
         var now = LocalDate.now();
         var period = Period.between(getBirthDate(), now);
 
-        return period.getYears();
+        return period;
     }
 }

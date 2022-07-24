@@ -38,7 +38,7 @@ public class Person implements PersonInterface {
     @Column(name = "birth_date", nullable = false)
     private LocalDate birthDate;
 
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany(/* fetch = FetchType.EAGER */)
     @JoinTable(name = "person_address",
             joinColumns = @JoinColumn(name = "person_id"),
             inverseJoinColumns = @JoinColumn(name = "address_id"))
