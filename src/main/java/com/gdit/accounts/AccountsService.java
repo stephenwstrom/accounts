@@ -4,13 +4,14 @@ import com.gdit.accounts.model.Person;
 
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.transaction.Transactional;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
+import java.util.UUID;
 
 @Path("/accounts")
+@Transactional
 public class AccountsService {
 
     @Inject
@@ -20,11 +21,40 @@ public class AccountsService {
     @Path("/person")
     @Produces(MediaType.APPLICATION_JSON)
     public List<Person> get() {
-
         var query = em.createQuery("select p from Person p");
         List resultList = query.getResultList();
 
         return resultList;
+    }
+
+    @GET
+    @Path("/person/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Transactional
+
+    public Person get(@PathParam("id") UUID id) {
+        var query = em.createQuery("select p from Person p where p.id = ?1");
+        query.setParameter(1, id);
+        Person result = (Person) query.getSingleResult();
+
+        return result;
+    }
+
+    @PUT
+    @Path("/person")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public void put(Person p) {
+        em.persist(p);
+     }
+
+    @POST
+    @Path("/person/{id}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public void post(Person p, @PathParam("id") UUID id) {
+        var query = em.createQuery("select p from Person p where p.id = ?1");
+        query.setParameter(1, id);
+        var pold = (Person) query.getSingleResult();
+        pold.setGivenName(p.getGivenName());
     }
 
 
