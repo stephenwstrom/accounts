@@ -15,11 +15,7 @@ import java.util.UUID;
 @Entity
 @Table(name = "person")
 public class Person extends BaseEntity implements PersonInterface {
-    @Column(name = "given_name", nullable = false)
-    private String givenName;
 
-    @Column(name = "sur_name", nullable = false)
-    private String surName;
 
     @Override
     public LocalDate getBirthDate() {
@@ -34,6 +30,19 @@ public class Person extends BaseEntity implements PersonInterface {
     @Column(name = "birth_date", nullable = false)
     private LocalDate birthDate;
 
+    @Override
+    public PersonName getName() {
+        return name;
+    }
+
+    @Override
+    public void setName(PersonName name) {
+        this.name = name;
+    }
+
+    @Embedded
+    PersonName name;
+
     @ManyToMany(/* fetch = FetchType.EAGER */)
     @JoinTable(name = "person_address",
             joinColumns = @JoinColumn(name = "person_id"),
@@ -42,25 +51,7 @@ public class Person extends BaseEntity implements PersonInterface {
 
 
 
-    @Override
-    public String getGivenName() {
-        return givenName;
-    }
 
-    @Override
-    public void setGivenName(String givenName) {
-        this.givenName = givenName;
-    }
-
-    @Override
-    public String getSurName() {
-        return surName;
-    }
-
-    @Override
-    public void setSurName(String surName) {
-        this.surName = surName;
-    }
 
     @Override
     public Set<Address> getAddresses() {

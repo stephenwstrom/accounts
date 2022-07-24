@@ -16,13 +16,9 @@ public interface PersonInterface {
 
     Integer getVersion();
 
-    String getGivenName();
+    public PersonName getName();
 
-    void setGivenName(String givenName);
-
-    String getSurName();
-
-    void setSurName(String surName);
+    public void setName(PersonName name);
 
     Set<Address> getAddresses();
 

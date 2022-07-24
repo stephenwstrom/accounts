@@ -56,7 +56,7 @@ public class AccountsService {
         var query = em.createQuery("select p from Person p where p.id = ?1");
         query.setParameter(1, id);
         var pold = (Person) query.getSingleResult();
-        pold.setGivenName(p.getGivenName());
+        pold.getName().setGivenName(p.getName().getGivenName());
     }
 
 

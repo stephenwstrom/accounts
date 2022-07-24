@@ -1,7 +1,10 @@
 package com.gdit.accounts.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.time.Clock;
 import java.util.UUID;
 
 @MappedSuperclass
@@ -25,5 +28,20 @@ public class BaseEntity {
     public Integer getVersion() {
         return version;
     }
+
+
+    @Transient
+    private Clock clock = Clock.systemUTC();
+
+    @JsonIgnore
+
+    public Clock getClock() {
+        return clock;
+    }
+
+    public void setClock(Clock clock) {
+        this.clock = clock;
+    }
+
 
 }
