@@ -6,29 +6,11 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "address")
-public class Address {
-    @Id
-    @Column(name = "id", nullable = false)
-    private UUID id = UUID.randomUUID();
-
-    @NotNull
-    @Version
-    private Integer version;
+public class Address extends BaseEntity {
 
     @Column(name = "street", nullable = false)
     private String street;
 
-    public Integer getVersion() {
-        return version;
-    }
-
-    public UUID getId() {
-        return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
-    }
 
     public String getStreet() {
         return street;

@@ -14,11 +14,7 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "person")
-public class Person implements PersonInterface {
-    @Id
-    @Column(name = "id", nullable = false)
-    private UUID id = UUID.randomUUID();
-
+public class Person extends BaseEntity implements PersonInterface {
     @Column(name = "given_name", nullable = false)
     private String givenName;
 
@@ -44,24 +40,7 @@ public class Person implements PersonInterface {
             inverseJoinColumns = @JoinColumn(name = "address_id"))
     private Set<Address> addresses = new LinkedHashSet<>();
 
-    @Override
-    public UUID getId() {
-        return id;
-    }
 
-    @Override
-    public void setId(UUID id) {
-        this.id = id;
-    }
-
-    @NotNull
-    @Version
-    private Integer version;
-
-    @Override
-    public Integer getVersion() {
-        return version;
-    }
 
     @Override
     public String getGivenName() {
