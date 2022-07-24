@@ -57,6 +57,11 @@ public class AccountsService {
         query.setParameter(1, id);
         var pold = (Person) query.getSingleResult();
         pold.getName().setGivenName(p.getName().getGivenName());
+        try {
+            Thread.sleep(30000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 
