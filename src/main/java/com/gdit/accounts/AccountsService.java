@@ -22,7 +22,10 @@ public class AccountsService {
     @Produces(MediaType.APPLICATION_JSON)
     public List<Person> get() {
         var query = em.createQuery("select p from Person p");
-        List resultList = query.getResultList();
+        List<Person> resultList = (List<Person>) query.getResultList();
+        for (Person p: resultList) {
+            p.getAddresses().size();
+        }
 
         return resultList;
     }
