@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2022. GDIT Proprietary
+ */
+
 package com.gdit.accounts.model;
 
 import javax.persistence.*;

@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2022. GDIT Proprietary
+ */
+
 package com.gdit.accounts;
 
 import com.gdit.accounts.model.Person;
