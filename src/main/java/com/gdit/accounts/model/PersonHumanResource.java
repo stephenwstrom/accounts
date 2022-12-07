@@ -9,7 +9,6 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table()
 public class PersonHumanResource extends Person {
 
     public boolean isEmployed() {
