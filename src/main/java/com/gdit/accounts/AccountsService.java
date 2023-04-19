@@ -53,6 +53,8 @@ public class AccountsService {
     @Consumes(MediaType.APPLICATION_JSON)
     public UUID put(Person p) {
         em.persist(p);
+        em.persist(p.getAddresses().toArray()[0]);
+        p.getAddresses().size();
         return p.getId();
      }
 

@@ -67,6 +67,7 @@ public class BaseEntity {
 
     @Column(name = "creation_time_stamp", nullable = false, columnDefinition="TIMESTAMP WITH TIME ZONE")
     @CreationTimestamp
+    // @Temporal(TemporalType.TIMESTAMP)
     Instant creationTimeStamp;
 
 
@@ -80,6 +81,7 @@ public class BaseEntity {
 
     @Column(name = "modification_time_stamp", nullable = false, columnDefinition="TIMESTAMP WITH TIME ZONE")
     @UpdateTimestamp
+    // @Temporal(TemporalType.TIMESTAMP)
     Instant modificationTimeStamp;
 
 
