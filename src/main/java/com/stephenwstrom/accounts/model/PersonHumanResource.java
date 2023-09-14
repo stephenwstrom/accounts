@@ -2,11 +2,10 @@
  * Copyright (c) 2022. Stephen W. Strom
  */
 
-package com.gdit.accounts.model;
+package com.stephenwstrom.accounts.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Table;
 
 @Entity
 public class PersonHumanResource extends Person {

@@ -2,19 +2,12 @@
  * Copyright (c) 2022. Stephen W. Strom
  */
 
-package com.gdit.accounts.model;
-
-import org.hibernate.annotations.GenericGenerator;
+package com.stephenwstrom.accounts.model;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlRootElement;
 import java.time.LocalDate;
 import java.util.LinkedHashSet;
 import java.util.Set;
-import java.util.UUID;
 
 @Entity
 @Table(name = "person")
@@ -25,6 +18,7 @@ public class Person extends BaseEntity implements PersonInterface {
     public LocalDate getBirthDate() {
         return birthDate;
     }
+
 
     @Override
     public void setBirthDate(LocalDate birthDate) {
@@ -42,6 +36,22 @@ public class Person extends BaseEntity implements PersonInterface {
     @Override
     public void setName(PersonName name) {
         this.name = name;
+        // assert that the name is not null
+        assert name != null;
+
+        // assert that if the name is smith, the name is not john   (this is a contrived example)
+
+        var x = 3;
+        var y = 4;
+
+        // assert that x is less than y
+        assert x < y;
+
+        // assert that y is greater than x
+
+
+
+
     }
 
     @Embedded

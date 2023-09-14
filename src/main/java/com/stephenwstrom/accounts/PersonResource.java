@@ -2,9 +2,9 @@
  * Copyright (c) 2022. Stephen W. Strom
  */
 
-package com.gdit.accounts;
+package com.stephenwstrom.accounts;
 
-import com.gdit.accounts.model.Person;
+import com.stephenwstrom.accounts.model.Person;
 import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.GraphQLApi;
 import org.eclipse.microprofile.graphql.Query;

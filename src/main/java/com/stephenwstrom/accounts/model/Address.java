@@ -2,11 +2,9 @@
  * Copyright (c) 2022. Stephen W. Strom
  */
 
-package com.gdit.accounts.model;
+package com.stephenwstrom.accounts.model;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import java.util.UUID;
 
 @Entity
 @Table(name = "address")

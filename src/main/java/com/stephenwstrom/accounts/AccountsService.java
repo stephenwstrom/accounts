@@ -2,9 +2,10 @@
  * Copyright (c) 2022. Stephen W. Strom
  */
 
-package com.gdit.accounts;
+package com.stephenwstrom.accounts;
 
-import com.gdit.accounts.model.Person;
+import com.stephenwstrom.accounts.model.Address;
+import com.stephenwstrom.accounts.model.Person;
 
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
@@ -38,13 +39,23 @@ public class AccountsService {
     @Path("/person/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     @Transactional
-
     public Person get(@PathParam("id") UUID id) {
         var query = em.createQuery("select p from Person p where p.id = ?1");
         query.setParameter(1, id);
         Person result = (Person) query.getSingleResult();
         result.getAddresses().size();
 
+        return result;
+    }
+
+    @GET
+    @Path("/address/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Transactional
+    public Address getAddress(UUID id) {
+        var query = em.createQuery("select a from Address a where a.id = ?1");
+        query.setParameter(1, id);
+        Address result = (Address) query.getSingleResult();
         return result;
     }
 

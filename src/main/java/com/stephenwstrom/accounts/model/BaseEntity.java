@@ -2,7 +2,7 @@
  * Copyright (c) 2022. Stephen W. Strom
  */
 
-package com.gdit.accounts.model;
+package com.stephenwstrom.accounts.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.CreationTimestamp;
