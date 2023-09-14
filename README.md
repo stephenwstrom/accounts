@@ -1,4 +1,4 @@
-# importer-accounts Project
+# accounts Project
 
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
 
