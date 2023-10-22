@@ -20,9 +20,9 @@ public interface PersonInterface {
 
     Integer getVersion();
 
-    public PersonName getName();
+    PersonName getName();
 
-    public void setName(PersonName name);
+    void setName(PersonName name);
 
     Set<Address> getAddresses();
 
